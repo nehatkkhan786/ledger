@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">H Y Brothers</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
+        <li class="nav-item">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Client
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create New Client</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form action="{% url 'create_client' %}" method="post">
+                  {% csrf_token %}
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                    </div>
+
+                    <div class="mb-3">
+                      <input type="text" class="form-control" name="email" placeholder="Enter Email">
+                    </div>
+
+                    <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="phone" placeholder="Enter Phone No." aria-label="phone">
+                    <input type="text" class="form-control" name="firm_name" placeholder="Enter Firm Name" aria-label="firm_name">
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </li>   
+      </ul>
+    </div>
+  </div>
+</nav>
